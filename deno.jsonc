@@ -15,7 +15,6 @@
       "tags": ["recommended"]
     }
   },
-  "importMap": "import_map.json",
   "include": ["."],
   "tasks": {
     "build_wasm": "cargo build --release --target wasm32-unknown-unknown",
