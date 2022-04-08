@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "experimentalDecorators": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "lint": {
+    "files": {
+      "include": ["."]
+    },
+    "rules": {
+      "exclude": ["ban-types", "no-empty", "no-explicit-any", "no-namespace", "require-await"],
+      "tags": ["recommended"]
+    }
+  },
+  "importMap": "import_map.json",
+  "include": ["."],
+  "tasks": {
+    "build_wasm": "cargo build --release --target wasm32-unknown-unknown",
+    "build_wasm_bindings": "wasm-bindgen target/wasm32-unknown-unknown/release/wasm_bindgen.wasm --target deno --weak-refs --out-dir target/wasm",
+    "build": "deno task build_wasm && deno task build_wasm_bindings"
+  }
+}
